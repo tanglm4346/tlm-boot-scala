@@ -16,6 +16,7 @@
 
 	<properties>
 		<java.version>1.8</java.version>
+		<scala.version>2.12.8</scala.version>
 	</properties>
 
 	<dependencies>
@@ -25,10 +26,17 @@
 		</dependency>
 
 		<dependency>
+			<groupId>org.scala-lang</groupId>
+			<artifactId>scala-library</artifactId>
+			<version>${scala.version}</version>
+		</dependency>
+
+		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+
 	</dependencies>
 
 	<build>
@@ -37,6 +45,37 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+			<plugin>
+				<groupId>org.scala-tools</groupId>
+				<artifactId>maven-scala-plugin</artifactId>
+				<executions>
+					<execution>
+						<goals>
+							<goal>compile</goal>
+							<goal>testCompile</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<recompileMode>incremental</recompileMode>
+					<scalaVersion>${scala.version}</scalaVersion>
+					<launchers>
+						<launcher>
+							<id>app</id>
+							<mainClass>com.light.sword.ylazy.LightSwordApplication</mainClass>
+							<args>
+								<arg>-deprecation</arg>
+							</args>
+							<jvmArgs>
+								<jvmArg>-Xms256m</jvmArg>
+								<jvmArg>-Xmx2048m</jvmArg>
+							</jvmArgs>
+						</launcher>
+					</launchers>
+				</configuration>
+			</plugin>
+
+
 		</plugins>
 	</build>
 
