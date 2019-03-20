@@ -2,13 +2,14 @@ package com.tlm.tlmbootscala.controller;
 
 import com.tlm.tlmbootscala.pojo.MetaDatabase;
 import com.tlm.tlmbootscala.service.MetaDatabaseService;
+import com.tlm.tlmbootscala.support.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
+
 
 /**
  * @author tanglm
@@ -22,18 +23,18 @@ public class MetaDatabaseController {
     private MetaDatabaseService metaDatabaseService;
 
     @PostMapping("/save")
-    public String  save(MetaDatabase metaDatabase){
+    public Result  save(MetaDatabase metaDatabase){
         try {
             metaDatabaseService.save(metaDatabase);
-            return "SUCCESS";
+            return Result.success(null);
         }catch (Exception e){
             e.printStackTrace();
-            return "FAIL";
+            return Result.error(e.getMessage());
         }
     }
 
     @GetMapping("/list")
-    public List<MetaDatabase> list(){
-       return metaDatabaseService.getMetaDatabaseList();
+    public Result list(){
+       return Result.success(metaDatabaseService.getMetaDatabaseList());
     }
 }
