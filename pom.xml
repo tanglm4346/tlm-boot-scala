@@ -61,8 +61,6 @@
 					<scalaVersion>${scala.version}</scalaVersion>
 					<launchers>
 						<launcher>
-							<id>app</id>
-							<mainClass>com.light.sword.ylazy.LightSwordApplication</mainClass>
 							<args>
 								<arg>-deprecation</arg>
 							</args>
