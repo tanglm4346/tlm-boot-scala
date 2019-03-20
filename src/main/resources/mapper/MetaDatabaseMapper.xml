@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tlm.tlmbootscala.mapper.MetaDatabaseMapper">
+    <select id="getMetaDatabaseList" resultType="MetaDatabase">
+        SELECT id,name,location FROM meta_database
+    </select>
+    <insert id="insert" parameterType="MetaDatabase">
+        INSERT INTO  meta_database(name,location) VALUES (#{name},#{location})
+     </insert>
+</mapper>
