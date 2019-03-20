@@ -2,7 +2,7 @@ package com.tlm.tlmbootscala.service.impl
 
 import com.tlm.tlmbootscala.mapper.MetaTableMapper
 import com.tlm.tlmbootscala.pojo.MetaTable
-import com.tlm.tlmbootscala.service.MetaTableService
+import com.tlm.tlmbootscala.service.{MetaDatabaseService, MetaTableService}
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 
