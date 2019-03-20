@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tlm.tlmbootscala.mapper.MetaTableMapper">
+    <select id="getAll" resultType="MetaTable">
+        SELECT id,name,tableType,dbId FROM meta_table
+    </select>
+    <insert id="insert" parameterType="MetaTable">
+        INSERT INTO  meta_table(name,tableType,dbId) VALUES (#{name},#{tableType},#{dbId})
+    </insert>
+
+
+    <select id="getMetaTableById" parameterType="scala.Long" resultType="MetaTable">
+        SELECT id,name,tableType,dbId FROM meta_table WHERE id=#{id}
+    </select>
+</mapper>

@@ -4,11 +4,7 @@ import com.tlm.tlmbootscala.pojo.MetaDatabase;
 import com.tlm.tlmbootscala.service.MetaDatabaseService;
 import com.tlm.tlmbootscala.support.Result;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
+import org.springframework.web.bind.annotation.*;
 
 
 /**
@@ -17,12 +13,12 @@ import org.springframework.web.bind.annotation.RestController;
  * @Description:
  */
 @RestController
-@RequestMapping("/meta")
+@RequestMapping("/metadatabase")
 public class MetaDatabaseController {
     @Autowired
     private MetaDatabaseService metaDatabaseService;
 
-    @PostMapping("/save")
+    @PutMapping("")
     public Result  save(MetaDatabase metaDatabase){
         try {
             metaDatabaseService.save(metaDatabase);
@@ -33,7 +29,7 @@ public class MetaDatabaseController {
         }
     }
 
-    @GetMapping("/list")
+    @GetMapping("")
     public Result list(){
        return Result.success(metaDatabaseService.getMetaDatabaseList());
     }
